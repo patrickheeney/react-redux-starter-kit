@@ -36,6 +36,12 @@ const HomeView = ({ counter, increment }) => {
   )
 }
 
-HomeView.propTypes = PropTypes
+class HomeViewWrapper extends React.Component {
+  render () {
+    return <HomeView {...this.props} />
+  }
+}
 
-export default connect(mapStateToProps, counterActions)(HomeView)
+HomeViewWrapper.propTypes = PropTypes
+
+export default connect(mapStateToProps, counterActions)(HomeViewWrapper)
